@@ -1,0 +1,114 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter', 'Segoe UI Variable', 'Segoe UI', -apple-system, system-ui, sans-serif;
+  --font-mono: 'Cascadia Code', 'JetBrains Mono', 'SF Mono', ui-monospace, 'Consolas', monospace;
+
+  --color-bg: #0a0a0b;
+  --color-bg-elevated: #0f0f11;
+  --color-panel: #131316;
+  --color-panel-hover: #17171b;
+  --color-border: #232328;
+  --color-border-strong: #2c2c33;
+
+  --color-text: #f2f2f4;
+  --color-text-muted: #9a9aa5;
+  --color-text-faint: #5f5f6b;
+
+  --color-accent: #7c8cff;
+  --color-accent-hover: #8f9dff;
+  --color-accent-muted: #7c8cff26;
+
+  --color-success: #4ade80;
+  --color-success-muted: #4ade8020;
+  --color-danger: #f87171;
+  --color-danger-muted: #f8717120;
+  --color-warning: #fbbf24;
+  --color-warning-muted: #fbbf2420;
+
+  --animate-fade-in: fade-in 0.15s ease-out;
+  --animate-scale-in: scale-in 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.98) translateY(2px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+  user-select: none;
+}
+
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
+input,
+textarea,
+pre,
+code,
+.text-mono {
+  user-select: text;
+}
+
+::selection {
+  background: var(--color-accent-muted);
+}
+
+/* Slim, unobtrusive scrollbars that match the graphite palette */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-strong) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 8px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #3a3a42;
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+}
+
+.app-drag {
+  -webkit-app-region: drag;
+}
+.app-no-drag {
+  -webkit-app-region: no-drag;
+}
